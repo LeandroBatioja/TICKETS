@@ -1,14 +1,13 @@
-// components/NewTicketModal.tsx
 'use client';
 
 import { useState } from 'react';
-import { crearTicket } from '@/lib/api'; // Asegúrate de que esta importación sea correcta
-import { useAuth } from '@/context/AuthContext'; // Asumo que usas un AuthContext
-import { Ticket } from '@/types/ticket'; // Asumo que tienes un tipo Ticket
+import { crearTicket } from '@/lib/api';
+import { useAuth } from '@/context/AuthContext'; 
+import { Ticket } from '@/types/ticket'; 
 
 interface Props {
   onClose: () => void;
-  onCreated: (newTicket: Ticket) => void; // Asume que onCreated espera un Ticket
+  onCreated: (newTicket: Ticket) => void; 
 }
 
 export default function NewTicketModal({ onClose, onCreated }: Props) {
