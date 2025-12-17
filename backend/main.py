@@ -13,6 +13,20 @@ from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
 
 # ======================================================
+# CONFIGURACIÓN DE FASTAPI
+# ======================================================
+app = FastAPI()
+
+# Configuración de CORS
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Debe ser una lista de strings
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+# ======================================================
 # CONFIGURACIÓN DE BASE DE DATOS (Ajusta esto a tu entorno)
 # ======================================================
 
@@ -102,21 +116,7 @@ class Interaccion(Base):
 # Base.metadata.create_all(bind=engine)
 
 
-# ======================================================
-# CONFIGURACIÓN DE FASTAPI
-# ======================================================
-app = FastAPI()
 
-# Configuración de CORS
-origins = ["http://localhost:3000"] # Asegúrate de que tu puerto de Next.js esté aquí
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # ======================================================
 # ESQUEMAS PYDANTIC
